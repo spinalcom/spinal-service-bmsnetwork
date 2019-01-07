@@ -6,4 +6,5 @@ export declare class InputDataEndpoint {
     currentValue: number | string;
     unit: string;
     dataType: InputDataEndpointDataType;
+    nodeTypeName: string;
 }

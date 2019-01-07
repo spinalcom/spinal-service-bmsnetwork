@@ -31,4 +31,5 @@ export class InputDataEndpoint {
   public currentValue: number|string;
   public unit: string;
   public dataType: InputDataEndpointDataType;
+  nodeTypeName: string; // should be SpinalBmsEndpoint.nodeTypeName || 'BmsEndpoint'
 }

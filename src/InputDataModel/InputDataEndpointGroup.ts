@@ -30,4 +30,5 @@ export interface InputDataEndpointGroup {
   type: string;
   path: string;
   children: (InputDataEndpoint)[];
+  nodeTypeName: string; // should be SpinalBmsEndpointGroup.nodeTypeName || 'BmsEndpointGroup'
 }

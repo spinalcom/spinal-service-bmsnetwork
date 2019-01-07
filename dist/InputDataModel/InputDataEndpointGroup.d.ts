@@ -5,4 +5,5 @@ export interface InputDataEndpointGroup {
     type: string;
     path: string;
     children: (InputDataEndpoint)[];
+    nodeTypeName: string;
 }
