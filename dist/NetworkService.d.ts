@@ -9,7 +9,7 @@ declare class NetworkService {
         contextId: string;
         networkId: string;
     }>;
-    createNewBmsNetwork(parentId: string, typeName: string): Promise<any>;
+    createNewBmsNetwork(parentId: string, typeName: string, networkName: string): Promise<any>;
     createNewBmsDevice(parentId: string, obj: InputDataDevice): Promise<any>;
     createNewBmsEndpointGroup(parentId: string, obj: InputDataEndpointGroup): Promise<any>;
     createNewBmsEndpoint(parentId: string, obj: InputDataEndpoint): Promise<any>;

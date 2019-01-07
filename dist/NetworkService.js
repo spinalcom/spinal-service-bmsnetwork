@@ -51,22 +51,28 @@ class NetworkService {
             const childrenContext = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildrenInContext(this.contextId, this.contextId);
             let childFoundId = '';
             for (const childContext of childrenContext) {
-                if (childContext.type.get() === configService.networkType) {
+                if (childContext.networkName.get() === configService.networkType) {
                     childFoundId = childContext.id.get();
                     break;
                 }
             }
             if (childFoundId === '') {
-                childFoundId = yield this.createNewBmsNetwork(this.contextId, configService.networkType).then(res => res.id.get());
+                childFoundId = yield this.createNewBmsNetwork(this.contextId, configService.networkType, configService.networkName).then(res => res.id.get());
             }
             this.networkId = childFoundId;
             return { contextId: this.contextId, networkId: childFoundId };
         });
     }
-    createNewBmsNetwork(parentId, typeName) {
+    createNewBmsNetwork(parentId, typeName, networkName) {
         return __awaiter(this, void 0, void 0, function* () {
-            const res = new spinal_model_bmsnetwork_1.SpinalBmsNetwork(typeName, typeName);
-            const tmpInfo = { type: 'BmsNetwork', name: typeName, idNetwork: res.id.get() };
+            const res = new spinal_model_bmsnetwork_1.SpinalBmsNetwork(networkName, typeName);
+            const tmpInfo = {
+                networkName,
+                typeName,
+                type: 'BmsNetwork',
+                name: typeName,
+                idNetwork: res.id.get(),
+            };
             const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(tmpInfo, res);
             yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(parentId, childId, this.contextId, spinal_model_bmsnetwork_1.SpinalBmsDevice.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_TYPE);
             return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(childId);

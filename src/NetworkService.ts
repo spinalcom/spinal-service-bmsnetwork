@@ -63,26 +63,35 @@ class NetworkService {
       await SpinalGraphService.getChildrenInContext(this.contextId, this.contextId);
     let childFoundId: string = '';
     for (const childContext of childrenContext) {
-      if (childContext.type.get() === configService.networkType) {
+      if (childContext.networkName.get() === configService.networkType) {
         childFoundId = childContext.id.get();
         break;
       }
     }
     if (childFoundId === '') {
-      childFoundId = await this.createNewBmsNetwork(this.contextId, configService.networkType).then(
-        res => <string>res.id.get(),
-      );
+      childFoundId = await this.createNewBmsNetwork(
+          this.contextId,
+          configService.networkType,
+          configService.networkName,
+          ).then(res => <string>res.id.get());
     }
     this.networkId = childFoundId;
     return { contextId:this.contextId, networkId: childFoundId };
   }
 
-  public async createNewBmsNetwork(parentId: string, typeName: string): Promise<any> {
+  public async createNewBmsNetwork(parentId: string, typeName: string, networkName: string)
+  : Promise<any> {
     const res = new SpinalBmsNetwork(
-      typeName,
+      networkName,
       typeName,
     );
-    const tmpInfo = { type:'BmsNetwork', name: typeName, idNetwork: res.id.get() };
+    const tmpInfo = {
+      networkName,
+      typeName,
+      type:'BmsNetwork',
+      name: typeName,
+      idNetwork: res.id.get(),
+    };
     const childId = SpinalGraphService.createNode(tmpInfo, res);
     await SpinalGraphService.addChildInContext(
       parentId,
