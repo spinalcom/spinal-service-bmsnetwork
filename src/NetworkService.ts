@@ -64,7 +64,8 @@ class NetworkService {
       await SpinalGraphService.getChildrenInContext(this.contextId, this.contextId);
     let childFoundId: string = '';
     for (const childContext of childrenContext) {
-      if (childContext.networkName.get() === configService.networkType) {
+      if (typeof childContext.networkName !== 'undefined' &&
+      childContext.networkName.get() === configService.networkType) {
         childFoundId = childContext.id.get();
         break;
       }

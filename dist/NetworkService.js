@@ -52,7 +52,8 @@ class NetworkService {
             const childrenContext = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildrenInContext(this.contextId, this.contextId);
             let childFoundId = '';
             for (const childContext of childrenContext) {
-                if (childContext.networkName.get() === configService.networkType) {
+                if (typeof childContext.networkName !== 'undefined' &&
+                    childContext.networkName.get() === configService.networkType) {
                     childFoundId = childContext.id.get();
                     break;
                 }
