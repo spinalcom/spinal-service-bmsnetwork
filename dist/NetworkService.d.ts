@@ -1,4 +1,4 @@
-import { InputDataDevice, InputDataEndpoint, InputDataEndpointGroup, InputDataEndpointDataType } from './InputDataModel/InputDataModel';
+import { InputDataDevice, InputDataEndpoint, InputDataEndpointGroup, InputDataEndpointType, InputDataEndpointDataType } from './InputDataModel/InputDataModel';
 import { ConfigService } from './Utils/ConfigService';
 declare class NetworkService {
     private context;
@@ -22,5 +22,6 @@ export { NetworkService };
 export { InputDataDevice };
 export { InputDataEndpoint };
 export { InputDataEndpointGroup };
+export { InputDataEndpointType };
 export { InputDataEndpointDataType };
 export { ConfigService };

@@ -27,4 +27,6 @@ const InputDataEndpoint_1 = require("./InputDataEndpoint");
 exports.InputDataEndpoint = InputDataEndpoint_1.InputDataEndpoint;
 const InputDataEndpointDataType_1 = require("./InputDataEndpointDataType");
 exports.InputDataEndpointDataType = InputDataEndpointDataType_1.InputDataEndpointDataType;
+const InputDataEndpointType_1 = require("./InputDataEndpointType");
+exports.InputDataEndpointType = InputDataEndpointType_1.InputDataEndpointType;
 //# sourceMappingURL=InputDataModel.js.map

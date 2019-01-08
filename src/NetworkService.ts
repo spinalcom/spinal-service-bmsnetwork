@@ -30,6 +30,7 @@ import {
   InputDataDevice,
   InputDataEndpoint,
   InputDataEndpointGroup,
+  InputDataEndpointType,
   InputDataEndpointDataType,
 } from './InputDataModel/InputDataModel';
 import {
@@ -76,7 +77,7 @@ class NetworkService {
           ).then(res => <string>res.id.get());
     }
     this.networkId = childFoundId;
-    return { contextId:this.contextId, networkId: childFoundId };
+    return { contextId: this.contextId, networkId: childFoundId };
   }
 
   public async createNewBmsNetwork(parentId: string, typeName: string, networkName: string)
@@ -151,6 +152,7 @@ class NetworkService {
       obj.currentValue,
       obj.unit,
       InputDataEndpointDataType[obj.dataType],
+      InputDataEndpointType[obj.type],
       obj.id,
     );
     const tmpInfo = { type:SpinalBmsEndpoint.nodeTypeName, name: obj.name, idNetwork: obj.id };
@@ -257,5 +259,6 @@ export { NetworkService };
 export { InputDataDevice };
 export { InputDataEndpoint };
 export { InputDataEndpointGroup };
+export { InputDataEndpointType };
 export { InputDataEndpointDataType };
 export { ConfigService };

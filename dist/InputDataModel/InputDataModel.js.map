@@ -1,1 +1,1 @@
-{"version":3,"file":"InputDataModel.js","sourceRoot":"","sources":["../../src/InputDataModel/InputDataModel.ts"],"names":[],"mappings":";AAAA;;;;;;;;;;;;;;;;;;;;;;GAsBG;;AAGH,2DAAwD;AAMtD,4BANO,qCAAiB,CAMP;AALnB,2EAAwE;AAMtE,oCANO,qDAAyB,CAMP"}
+{"version":3,"file":"InputDataModel.js","sourceRoot":"","sources":["../../src/InputDataModel/InputDataModel.ts"],"names":[],"mappings":";AAAA;;;;;;;;;;;;;;;;;;;;;;GAsBG;;AAGH,2DAAwD;AAOtD,4BAPO,qCAAiB,CAOP;AANnB,2EAAwE;AAQtE,oCARO,qDAAyB,CAQP;AAP3B,mEAAgE;AAM9D,gCANO,6CAAqB,CAMP"}

@@ -23,6 +23,7 @@
  */
 
 import { InputDataEndpointDataType } from './InputDataEndpointDataType';
+import { InputDataEndpointType } from './InputDataEndpointType';
 
 export class InputDataEndpoint {
   public id: string;
@@ -31,5 +32,6 @@ export class InputDataEndpoint {
   public currentValue: number|string;
   public unit: string;
   public dataType: InputDataEndpointDataType;
-  nodeTypeName: string; // should be SpinalBmsEndpoint.nodeTypeName || 'BmsEndpoint'
+  public type: InputDataEndpointType;
+  public nodeTypeName: string; // should be SpinalBmsEndpoint.nodeTypeName || 'BmsEndpoint'
 }

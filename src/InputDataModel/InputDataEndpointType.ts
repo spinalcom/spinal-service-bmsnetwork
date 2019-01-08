@@ -22,16 +22,13 @@
  * <http://resources.spinalcom.com/licenses.pdf>.
  */
 
-import { InputDataDevice } from './InputDataDevice';
-import { InputDataEndpoint } from './InputDataEndpoint';
-import { InputDataEndpointDataType } from './InputDataEndpointDataType';
-import { InputDataEndpointType } from './InputDataEndpointType';
-import { InputDataEndpointGroup } from './InputDataEndpointGroup';
+enum InputDataEndpointType {
+  Temperature,
+  Hygrometry,
+  Power,
+  Occupation,
+  Light,
+  Alarm,
+}
 
-export {
-  InputDataDevice,
-  InputDataEndpoint,
-  InputDataEndpointType,
-  InputDataEndpointDataType,
-  InputDataEndpointGroup,
-};
+export { InputDataEndpointType };

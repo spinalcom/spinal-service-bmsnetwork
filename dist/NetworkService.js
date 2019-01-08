@@ -34,6 +34,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const spinal_env_viewer_graph_service_1 = require("spinal-env-viewer-graph-service");
 const InputDataModel_1 = require("./InputDataModel/InputDataModel");
 exports.InputDataEndpoint = InputDataModel_1.InputDataEndpoint;
+exports.InputDataEndpointType = InputDataModel_1.InputDataEndpointType;
 exports.InputDataEndpointDataType = InputDataModel_1.InputDataEndpointDataType;
 const spinal_model_bmsnetwork_1 = require("spinal-model-bmsnetwork");
 class NetworkService {
@@ -98,7 +99,7 @@ class NetworkService {
     }
     createNewBmsEndpoint(parentId, obj) {
         return __awaiter(this, void 0, void 0, function* () {
-            const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(obj.name, obj.path, obj.currentValue, obj.unit, InputDataModel_1.InputDataEndpointDataType[obj.dataType], obj.id);
+            const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(obj.name, obj.path, obj.currentValue, obj.unit, InputDataModel_1.InputDataEndpointDataType[obj.dataType], InputDataModel_1.InputDataEndpointType[obj.type], obj.id);
             const tmpInfo = { type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName, name: obj.name, idNetwork: obj.id };
             const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(tmpInfo, res);
             yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(parentId, childId, this.contextId, spinal_model_bmsnetwork_1.SpinalBmsEndpoint.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_TYPE);
