@@ -29,6 +29,7 @@ enum InputDataEndpointType {
   Occupation,
   Light,
   Alarm,
+  Other,
 }
 
 export { InputDataEndpointType };
